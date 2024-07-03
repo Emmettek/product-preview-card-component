@@ -1,0 +1,138 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'reset';
+
+body {
+    height: 100vh;
+    height: 100svh;
+    background-color: v.$beige;
+    font-family: 'Fraunces', serif;
+
+    @include m.xs {
+        height: 100svh;
+        height: 100vh;
+    }
+}
+
+.wrapper {
+    @include flexcenter;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    height: 25em;
+    max-width: 35em;
+    margin-top: 10em;
+    background-color: v.$white;
+    border-radius: 8px;
+
+    @include m.xs {
+        @include flexbox;
+        height: 100%;
+        margin: 7em 2em;
+        overflow: hidden;
+    }
+}
+
+.img__bg {
+    width: 17.5em;
+    height: 25em;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+    @include m.xs {
+        display: none;
+    }
+
+    &--xs {
+        width: 100%;
+
+        @include m.sm {
+            display: none;
+        }
+    }
+}
+
+.text {
+    @include flexbox;
+    padding: 2em;
+    width: 17.5em;
+
+    @include m.xs {
+        padding-top: 2em;
+        padding-right: 0.5em;
+        padding-left: 0.5em;
+    }
+}
+
+.text__info {
+    &--title {
+        margin-bottom: 1em;
+        color: v.$light-gray;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+
+    &--description {
+        margin-top: 1em;
+        line-height: 20px;
+        color: v.$light-gray;
+    }
+}
+
+.h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.prices {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 1em;
+
+    &__discount {
+        margin-right: 0.5em;
+        font-size: 2rem;
+        color: v.$green;
+    }
+
+    &__price {
+        color: v.$light-gray;
+    }
+}
+
+.fa-cart-shopping {
+    margin-right: 0.5em;
+    font-size: 0.8rem;
+}
+
+.btn {
+    width: 100%;
+    padding: 0.5em 0.125em;
+    margin-top: 0.5em;
+    color: v.$white;
+    border-radius: 8px;
+    background-color: v.$green;
+    cursor: pointer;
+
+    &:hover {
+        background-color: v.$dark-green;
+        transition: background-color 0.3s ease-in-out;
+    }
+}
+
+.attribution {
+    font-size: 0.7rem;
+    text-align: center;
+    margin-top: 2em;
+
+    a {
+        color: v.$green;
+        text-decoration: underline;
+    }
+}
